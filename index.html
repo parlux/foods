@@ -940,7 +940,13 @@
       title: 'Divide and ball',
       timer: '3.5 hrs proof',
       timerSeconds: 3.5 * 60 * 60,
-      text: 'Divide dough into 2 pieces (~760g each) for a 15–19" pie, or 4 pieces (~400g each) for 14" pies. Flatten each to degas, fold edges into the centre, pinch the seam, and flip seam-side down. Rotate in small circles on the bench to build tension. Cover and proof 3.5 hrs at room temp, or refrigerate again up to another day.'
+      text: () => {
+        const doughWeight = ingredients
+          .filter(ing => ing.unit === 'g' || ing.unit === 'ml')
+          .reduce((total, ing) => total + ing.amount * (servings / ing.per), 0);
+        const ballWeight = Math.round(doughWeight / servings / 10) * 10;
+        return `Divide dough into ${servings} ${servings === 1 ? 'piece' : 'pieces'} (~${ballWeight}g each). Flatten each to degas, fold edges into the centre, pinch the seam, and flip seam-side down. Rotate in small circles on the bench to build tension. Cover and proof 3.5 hrs at room temp, or refrigerate again up to another day.`;
+      }
     },
     {
       title: 'Rest at room temperature',
@@ -1012,6 +1018,7 @@
     servings = next;
     document.getElementById('servings-display').textContent = servings;
     renderIngredients();
+    renderSteps();
   }
 
   // ── RENDER STEPS ──
@@ -1041,7 +1048,7 @@
           <span class="step-counter">${i + 1}</span>
           <div class="step-content">
             <strong>${step.title}</strong><br>
-            ${step.text}
+            ${typeof step.text === 'function' ? step.text() : step.text}
           </div>
           ${timerBtn}
         </div>

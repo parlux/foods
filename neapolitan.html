@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NY Style Pizza Dough</title>
+<title>Neapolitan Pizza Dough</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -42,7 +42,6 @@
     --gray-bg:   #F1EFE8;
     --gray-bd:   #D3D1C7;
 
-    --step-h: 28px;
     --radius: 10px;
     --radius-sm: 6px;
   }
@@ -88,14 +87,12 @@
     min-height: 100vh;
   }
 
-  /* ── LAYOUT ── */
   .page {
     max-width: 760px;
     margin: 0 auto;
     padding: 0 20px 80px;
   }
 
-  /* ── HERO ── */
   .hero {
     padding: 64px 0 48px;
     border-bottom: 1px solid var(--border);
@@ -128,15 +125,8 @@
   .hero-desc {
     font-size: 17px;
     color: var(--muted);
-    max-width: 480px;
+    max-width: 520px;
     line-height: 1.65;
-  }
-
-  .hero-meta {
-    display: flex;
-    gap: 24px;
-    margin-top: 28px;
-    flex-wrap: wrap;
   }
 
   .recipe-nav {
@@ -167,6 +157,13 @@
     color: var(--text);
   }
 
+  .hero-meta {
+    display: flex;
+    gap: 24px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+
   .meta-item {
     display: flex;
     flex-direction: column;
@@ -187,7 +184,6 @@
     color: var(--text);
   }
 
-  /* ── SECTION HEADERS ── */
   .section-label {
     font-family: var(--mono);
     font-size: 11px;
@@ -207,7 +203,6 @@
     background: var(--border);
   }
 
-  /* ── INFOGRAPHIC ── */
   .infographic {
     margin-bottom: 72px;
   }
@@ -225,7 +220,6 @@
     position: relative;
   }
 
-  /* vertical connector line */
   .step:not(:last-child) .step-line::after {
     content: '';
     position: absolute;
@@ -324,16 +318,13 @@
     text-transform: uppercase;
   }
 
-  /* step color variants */
   .step-coral .step-num  { background: var(--coral-bg); border-color: var(--coral-bd); color: var(--coral); }
   .step-coral .step-title { color: var(--coral); }
   .step-coral .step-note { background: var(--coral-bg); border-color: var(--coral); color: var(--text); }
-  .step-coral .option-card { background: var(--coral-bg); border-color: var(--coral-bd); }
 
   .step-blue .step-num   { background: var(--blue-bg);  border-color: var(--blue-bd);  color: var(--blue); }
   .step-blue .step-title  { color: var(--blue); }
   .step-blue .step-note  { background: var(--blue-bg);  border-color: var(--blue);  color: var(--text); }
-  .step-blue .option-card { background: var(--blue-bg); border-color: var(--blue-bd); }
 
   .step-teal .step-num   { background: var(--teal-bg);  border-color: var(--teal-bd);  color: var(--teal); }
   .step-teal .step-title  { color: var(--teal); }
@@ -342,14 +333,12 @@
 
   .step-gray .step-num   { background: var(--gray-bg);  border-color: var(--gray-bd);  color: var(--gray); }
   .step-gray .step-title  { color: var(--gray); }
-  .step-gray .step-note  { background: var(--gray-bg);  border-color: var(--gray-bd);  color: var(--text); }
+  .step-gray .step-note  { background: var(--gray-bg);  border-color: var(--gray-bd); color: var(--text); }
 
   .step-amber .step-num  { background: var(--amber-bg); border-color: var(--amber-bd); color: var(--amber); }
   .step-amber .step-title { color: var(--amber); }
   .step-amber .step-note { background: var(--amber-bg); border-color: var(--amber); color: var(--text); }
-  .step-amber .option-card { background: var(--amber-bg); border-color: var(--amber-bd); }
 
-  /* ── TIMELINE BAR ── */
   .timeline {
     margin-top: 8px;
     padding: 24px 0 0;
@@ -377,7 +366,7 @@
   .timeline-day1 {
     position: absolute;
     left: 0; top: 0; bottom: 0;
-    width: 55%;
+    width: 80%;
     background: var(--blue);
     opacity: 0.55;
     border-radius: 4px 0 0 4px;
@@ -385,33 +374,23 @@
 
   .timeline-day2 {
     position: absolute;
-    left: 55%; top: 0; bottom: 0;
+    left: 80%; top: 0; bottom: 0;
     right: 0;
     background: var(--amber);
     opacity: 0.55;
     border-radius: 0 4px 4px 0;
   }
 
-  .timeline-ticks {
+  .timeline-copy {
     display: flex;
     justify-content: space-between;
     font-family: var(--mono);
     font-size: 11px;
     color: var(--muted);
+    margin-top: 6px;
+    gap: 12px;
   }
 
-  .timeline-ticks span:nth-child(2) {
-    transform: translateX(-50%);
-    margin-left: calc(55% - 40px);
-    position: absolute;
-  }
-
-  .timeline-row {
-    position: relative;
-    display: flex;
-  }
-
-  /* ── RECIPE CARD SECTION ── */
   .recipe-section {
     margin-top: 72px;
   }
@@ -423,7 +402,6 @@
     overflow: hidden;
   }
 
-  /* ── INGREDIENT PANEL ── */
   .recipe-top {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -431,16 +409,17 @@
     border-bottom: 1px solid var(--border);
   }
 
-  @media (max-width: 540px) {
-    .recipe-top { grid-template-columns: 1fr; }
-    .recipe-top .divider { border-left: none; border-top: 1px solid var(--border); }
-  }
-
-  .ingredient-panel {
+  .ingredient-panel,
+  .tips-panel,
+  .proof-panel,
+  .steps-panel {
     padding: 28px;
   }
 
-  .ingredient-panel h3 {
+  .ingredient-panel h3,
+  .tips-panel h3,
+  .proof-panel h3,
+  .steps-panel h3 {
     font-family: var(--serif);
     font-size: 18px;
     margin-bottom: 20px;
@@ -539,21 +518,8 @@
     text-align: right;
   }
 
-  /* divider between panels */
   .recipe-top .divider {
     border-left: 1px solid var(--border);
-  }
-
-  /* ── PIZZA OVEN TIPS PANEL ── */
-  .tips-panel {
-    padding: 28px;
-  }
-
-  .tips-panel h3 {
-    font-family: var(--serif);
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: var(--text);
   }
 
   .tip-item {
@@ -582,15 +548,47 @@
     font-size: 13px;
   }
 
-  /* ── STEPS PANEL ── */
+  .proof-panel {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .proof-table {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    font-size: 13px;
+  }
+
+  .proof-table div {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .proof-table div:nth-child(odd) {
+    font-family: var(--mono);
+    color: var(--text);
+    background: var(--bg);
+    border-right: 1px solid var(--border);
+  }
+
+  .proof-table div:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+
+  .proof-note {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
   .steps-panel {
-    padding: 28px;
     border-top: 1px solid var(--border);
   }
 
   .steps-panel h3 {
-    font-family: var(--serif);
-    font-size: 18px;
     margin-bottom: 24px;
   }
 
@@ -652,7 +650,6 @@
     color: var(--amber);
   }
 
-  /* ── FOOTER ── */
   .footer {
     margin-top: 80px;
     padding-top: 24px;
@@ -670,12 +667,21 @@
   .footer a { color: var(--muted); text-decoration: none; }
   .footer a:hover { color: var(--text); }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 600px) {
     .step-options { grid-template-columns: 1fr; }
     .recipe-step { grid-template-columns: 24px 1fr; }
     .timer-badge { display: none; }
     .hero { padding: 40px 0 32px; }
+    .timeline-copy { flex-direction: column; }
+  }
+
+  @media (max-width: 540px) {
+    .recipe-top { grid-template-columns: 1fr; }
+    .recipe-top .divider { border-left: none; border-top: 1px solid var(--border); }
+    .proof-table { grid-template-columns: 1fr; }
+    .proof-table div:nth-child(odd) { border-right: none; }
+    .proof-table div:nth-child(even) { border-bottom: 1px solid var(--border); }
+    .proof-table div:last-child { border-bottom: none; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -686,42 +692,39 @@
 <body>
 <div class="page">
 
-  <!-- HERO -->
   <header class="hero">
-    <p class="hero-eyebrow">Pizza dough · Pizza oven adapted</p>
-    <h1>New York style<br><em>pizza dough</em></h1>
-    <p class="hero-desc">High-hydration, cold-fermented dough with a crispy, foldable crumb. Adapted from Joshua Weissman's recipe for a pizza oven at 280–320°C.</p>
+    <p class="hero-eyebrow">Pizza dough · 00 flour · high heat</p>
+    <h1>Neapolitan<br><em>pizza dough</em></h1>
+    <p class="hero-desc">A simple 4-ingredient dough for soft, airy 10-inch pizzas with a thin centre and puffed cornicione. Built around a long room-temperature proof and a very hot pizza oven.</p>
     <nav class="recipe-nav" aria-label="Recipes">
-      <a href="index.html" aria-current="page">NY Style</a>
-      <a href="neapolitan.html">Neapolitan</a>
+      <a href="index.html">NY Style</a>
+      <a href="neapolitan.html" aria-current="page">Neapolitan</a>
     </nav>
     <div class="hero-meta">
       <div class="meta-item">
         <span class="meta-label">Active time</span>
-        <span class="meta-value">~20 min</span>
+        <span class="meta-value">~25 min</span>
       </div>
       <div class="meta-item">
         <span class="meta-label">Total time</span>
-        <span class="meta-value">2 days</span>
+        <span class="meta-value">24 hrs</span>
       </div>
       <div class="meta-item">
         <span class="meta-label">Yield</span>
-        <span class="meta-value">Two 15" pies</span>
+        <span class="meta-value">Four 10" pies</span>
       </div>
       <div class="meta-item">
         <span class="meta-label">Oven temp</span>
-        <span class="meta-value">280–320°C</span>
+        <span class="meta-value">420-480°C</span>
       </div>
     </div>
   </header>
 
-  <!-- INFOGRAPHIC -->
   <section class="infographic">
     <p class="section-label">Method overview</p>
 
     <div class="steps-list">
 
-      <!-- Step 1: Mix -->
       <div class="step step-coral">
         <div class="step-line">
           <div class="step-num">1</div>
@@ -732,130 +735,117 @@
             <span class="step-time">~5 min</span>
           </div>
           <p class="step-desc">
-            Combine dry ingredients in a large bowl. Dissolve yeast in warm water, stir in olive oil. Pour wet into dry and mix until shaggy, then knead until smooth — about 3–5 minutes. Shape into a ball.
+            Add room-temperature water to a large bowl, then mix in the 00 flour, salt, and tiny amount of yeast until there are no dry patches and the dough forms a shaggy mass.
           </p>
           <div class="step-note" style="border-left-color: var(--coral);">
-            The dough should feel tacky but not sticky. If it tears instead of stretching, knead another minute.
+            No oil or sugar in the dough. Neapolitan dough gets its texture from flour, water, salt, yeast, and time.
           </div>
         </div>
       </div>
 
-      <!-- Step 2: Cold ferment -->
       <div class="step step-blue">
         <div class="step-line">
           <div class="step-num">2</div>
         </div>
         <div class="step-body">
           <div class="step-header">
-            <span class="step-title">Cold ferment</span>
-            <span class="step-time">12–24 hrs</span>
+            <span class="step-title">Rest, then knead</span>
+            <span class="step-time">1 hr + 5 min</span>
           </div>
           <p class="step-desc">
-            Lightly grease a large bowl, add dough, and cover tightly with plastic wrap. Refrigerate overnight or up to 24 hours. The slow, cold fermentation is what builds flavour and improves gluten structure.
+            Cover the dough and let it rest for about an hour, then knead for around 5 minutes until smoother and more elastic. Return it to the bowl and cover tightly.
           </p>
-          <div class="step-note" style="border-left-color: var(--blue);">
-            Don't skip this. 24 hours gives noticeably better flavour than 12.
-          </div>
         </div>
       </div>
 
-      <!-- Step 3: Divide and ball -->
       <div class="step step-teal">
         <div class="step-line">
           <div class="step-num">3</div>
         </div>
         <div class="step-body">
           <div class="step-header">
-            <span class="step-title">Divide and ball</span>
-            <span class="step-time">3.5 hrs proof or back in fridge</span>
+            <span class="step-title">Bulk proof</span>
+            <span class="step-time">~20 hrs</span>
           </div>
           <p class="step-desc">
-            Flatten each piece to degas, fold edges into the centre, pinch the seam, and flip seam-side down. Cup dough with both hands and rotate in small circles on the bench to build surface tension until you have a taut ball.
+            Let the dough prove as one mass at room temperature. The long fermentation develops flavour and gives the crust a light, open texture.
           </p>
           <div class="step-options">
             <div class="option-card">
-              <strong>For 15–19" pies</strong>
-              2 pieces ~760g each<br>
-              Proof 3.5 hrs at room temp
+              <strong>Cool room</strong>
+              Use more yeast or give it extra time.
             </div>
             <div class="option-card">
-              <strong>For 14" pies</strong>
-              4 pieces ~400g each<br>
-              Or cold ferment again up to +24 hrs
+              <strong>Warm room</strong>
+              Use less yeast and watch the dough closely.
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Step 4: Rest -->
       <div class="step step-gray">
         <div class="step-line">
           <div class="step-num">4</div>
         </div>
         <div class="step-body">
           <div class="step-header">
-            <span class="step-title">Rest at room temperature</span>
-            <span class="step-time">~1.5 hrs</span>
+            <span class="step-title">Divide and ball</span>
+            <span class="step-time">4-6 hrs before bake</span>
           </div>
           <p class="step-desc">
-            If the dough was fridge-cold after balling, let it come to room temperature before stretching. Cold dough is tight and will tear — it needs to relax.
+            Divide into equal dough balls, shape each one taut, then cover for the final proof. For the base recipe this gives four balls of about 250g each.
           </p>
         </div>
       </div>
 
-      <!-- Step 5: Stretch -->
       <div class="step step-amber">
         <div class="step-line">
           <div class="step-num">5</div>
         </div>
         <div class="step-body">
           <div class="step-header">
-            <span class="step-title">Stretch</span>
-            <span class="step-time">~5 min</span>
+            <span class="step-title">Shape and bake</span>
+            <span class="step-time">60-90 sec</span>
           </div>
           <p class="step-desc">
-            Flour both sides of the dough ball. Press your fist into the centre and work outward, leaving a ⅓" border. Drape over your fists and let gravity stretch it, rotating around the edge until 15". Final tug on the bench to even out.
+            Push air from the centre toward the rim, leaving the edge untouched. Stretch to about 10 inches, top lightly, launch immediately, and rotate often in a 420-480°C pizza oven.
           </p>
           <div class="step-note" style="border-left-color: var(--amber);">
-            <strong style="display:block; margin-bottom:4px; color: var(--amber);">Pizza oven peel tip</strong>
-            Dust the peel generously with semolina — not plain flour. Semolina acts like ball bearings and won't go gummy. Build the pizza directly on the peel, do a shake test before topping, then top and launch immediately.
+            For a domestic oven, use a preheated stone or steel at the hottest setting and expect about 6-8 minutes instead.
           </div>
         </div>
       </div>
 
-    </div><!-- /steps-list -->
+    </div>
 
-    <!-- TIMELINE -->
-    <div class="timeline" style="margin-top: 8px;">
-      <div class="timeline-label">Two-day timeline</div>
+    <div class="timeline">
+      <div class="timeline-label">24-hour timeline</div>
       <div class="timeline-bar">
         <div class="timeline-day1"></div>
         <div class="timeline-day2"></div>
       </div>
-      <div style="display:flex; justify-content:space-between; font-family: var(--mono); font-size:11px; color:var(--muted); margin-top:6px;">
-        <span style="color:var(--blue);">Day 1 — Mix + ferment</span>
-        <span style="color:var(--amber);">Day 2 — Ball · Rest · Stretch</span>
+      <div class="timeline-copy">
+        <span style="color:var(--blue);">First 20 hrs - bulk proof</span>
+        <span style="color:var(--amber);">Final 4-6 hrs - ball · proof · bake</span>
       </div>
     </div>
 
   </section>
 
-  <!-- RECIPE CARD -->
   <section class="recipe-section">
     <p class="section-label">Interactive recipe</p>
 
     <div class="recipe-card">
 
-      <!-- TOP: Ingredients + Tips -->
       <div class="recipe-top">
 
         <div class="ingredient-panel">
           <h3>Ingredients</h3>
 
           <div class="servings-control">
-            <span class="servings-label">Servings (pies)</span>
+            <span class="servings-label">Servings (pizzas)</span>
             <button class="qty-btn" onclick="changeServings(-1)" aria-label="Reduce servings">−</button>
-            <span class="qty-display" id="servings-display">2</span>
+            <span class="qty-display" id="servings-display">4</span>
             <button class="qty-btn" onclick="changeServings(1)" aria-label="Increase servings">+</button>
           </div>
 
@@ -871,43 +861,59 @@
           <div class="tip-item">
             <span class="tip-icon">🌡</span>
             <div>
-              <strong>Target 280–320°C</strong>
-              Not max temp. NY-style needs 7–8 minutes, not 90 seconds like Neapolitan.
-            </div>
-          </div>
-          <div class="tip-item">
-            <span class="tip-icon">🪨</span>
-            <div>
-              <strong>Straight on the stone</strong>
-              No tray. Direct conductive heat is what crisps the base. A tray steams it.
+              <strong>Target 420-480°C</strong>
+              Neapolitan needs intense heat. Aim for a stone floor hot enough to bake in 60-90 seconds.
             </div>
           </div>
           <div class="tip-item">
             <span class="tip-icon">🔄</span>
             <div>
-              <strong>Rotate every 2 min</strong>
-              Pizza ovens have a hot side near the flame. Rotate to even out colour.
+              <strong>Turn every 20-30 sec</strong>
+              Keep the rim moving near the flame so the crust blisters without burning one side.
             </div>
           </div>
           <div class="tip-item">
-            <span class="tip-icon">🌽</span>
+            <span class="tip-icon">🍅</span>
             <div>
-              <strong>Semolina on the peel</strong>
-              Acts like ball bearings. Plain flour goes gummy. Shake test before topping.
+              <strong>Keep toppings light</strong>
+              About two spoons of tomato sauce and a small handful of mozzarella per pizza.
             </div>
           </div>
           <div class="tip-item">
-            <span class="tip-icon">✅</span>
+            <span class="tip-icon">🧀</span>
             <div>
-              <strong>Skip the broil step</strong>
-              The dome provides natural top heat. Just watch the cheese colour.
+              <strong>Dry fresh mozzarella</strong>
+              Tear or slice it, then blot 30 minutes before baking to avoid a wet centre.
+            </div>
+          </div>
+          <div class="tip-item">
+            <span class="tip-icon">⚡</span>
+            <div>
+              <strong>Launch immediately</strong>
+              Shape and cook one pizza at a time. Topped dough sticks quickly.
             </div>
           </div>
         </div>
 
-      </div><!-- /recipe-top -->
+      </div>
 
-      <!-- STEPS -->
+      <div class="proof-panel">
+        <h3>Proof by room temp</h3>
+        <div class="proof-table">
+          <div>18-20°C</div>
+          <div>Use the higher end of the yeast range. Dough may need extra time.</div>
+          <div>21-23°C</div>
+          <div>Use the middle of the yeast range for the 20h bulk + 4-6h final proof.</div>
+          <div>24-26°C</div>
+          <div>Use the lower end of the yeast range and watch for overproofing.</div>
+          <div>27°C+</div>
+          <div>Reduce yeast further, shorten proofing, or move the dough somewhere cooler.</div>
+        </div>
+        <p class="proof-note">
+          This is practical guidance rather than a precise yeast calculator. Yeast strength, flour, and actual dough temperature all change the proofing speed.
+        </p>
+      </div>
+
       <div class="steps-panel">
         <h3>Steps</h3>
         <div class="recipe-steps" id="recipe-steps">
@@ -915,55 +921,73 @@
         </div>
       </div>
 
-    </div><!-- /recipe-card -->
+    </div>
   </section>
 
   <footer class="footer">
-    <span>Adapted from <a href="https://www.joshuaweissman.com/recipes/easy-new-york-style-pizza-at-home-recipe" target="_blank" rel="noopener">Joshua Weissman's NY Style Pizza</a></span>
-    <span>Pizza oven · 280–320°C · Direct on stone</span>
+    <span>Adapted from <a href="https://mypizzacorner.com/pizza-recipes/authentic-neapolitan-pizza-recipe-how-to-make-the-perfect-neapolitan-pizza/" target="_blank" rel="noopener">My Pizza Corner's Neapolitan Pizza</a></span>
+    <span>00 flour · 24 hr proof · 420-480°C</span>
   </footer>
 
-</div><!-- /page -->
+</div>
 
 <script>
-  // ── DATA ──
-  const BASE_SERVINGS = 2;
+  const BASE_SERVINGS = 4;
 
   const ingredients = [
     {
-      name: 'Flour',
-      note: '810g bread flour + 90g whole wheat',
-      amount: 900, unit: 'g', per: BASE_SERVINGS
-    },
-    {
-      name: 'Sugar',
-      note: null,
-      amount: 14, unit: 'g', per: BASE_SERVINGS
-    },
-    {
-      name: 'Kosher salt',
-      note: null,
-      amount: 31, unit: 'g', per: BASE_SERVINGS
+      name: '00 pizza flour',
+      note: 'Caputo or another strong 00 pizza flour',
+      amount: 640, unit: 'g', per: BASE_SERVINGS,
+      includeInDough: true
     },
     {
       name: 'Water',
-      note: '~24°C / 75°F',
-      amount: 576, unit: 'ml', per: BASE_SERVINGS
+      note: 'Room temperature',
+      amount: 360, unit: 'g', per: BASE_SERVINGS,
+      includeInDough: true
+    },
+    {
+      name: 'Fine salt',
+      note: null,
+      amount: 14, unit: 'g', per: BASE_SERVINGS,
+      includeInDough: true
     },
     {
       name: 'Instant yeast',
-      note: null,
-      amount: 5, unit: 'g', per: BASE_SERVINGS
+      note: 'Range for 24 hr proof; fresh yeast is about 3x this amount',
+      amountRange: [0.2, 0.5], unit: 'g', per: BASE_SERVINGS,
+      includeInDough: true
     },
     {
-      name: 'Olive oil',
-      note: null,
-      amount: 27, unit: 'g', per: BASE_SERVINGS
+      name: 'Tinned tomatoes',
+      note: 'San Marzano if available',
+      amount: 300, unit: 'g', per: BASE_SERVINGS
     },
     {
-      name: 'Semolina flour',
-      note: 'For the peel',
-      amount: 3, unit: 'tbsp', per: BASE_SERVINGS
+      name: 'Tomato puree',
+      note: 'Optional',
+      amount: 1, unit: 'tbsp', per: BASE_SERVINGS
+    },
+    {
+      name: 'Fresh mozzarella',
+      note: 'Drain and blot before topping',
+      amount: 250, unit: 'g', per: BASE_SERVINGS
+    },
+    {
+      name: 'Parmesan',
+      note: null,
+      amount: 30, unit: 'g', per: BASE_SERVINGS
+    },
+    {
+      name: 'Extra virgin olive oil',
+      note: 'For finishing',
+      amount: 4, unit: 'tsp', per: BASE_SERVINGS
+    },
+    {
+      name: 'Fresh basil',
+      note: 'For finishing',
+      amount: 1, unit: 'handful', per: BASE_SERVINGS
     }
   ];
 
@@ -971,96 +995,114 @@
     {
       title: 'Mix the dough',
       timer: null,
-      text: 'Combine flour, sugar, and salt in a large bowl. In a separate container, whisk water and yeast until dissolved, then stir in olive oil. Pour wet into dry and mix by hand until shaggy, then knead until smooth — about 3–5 minutes. Shape into a ball.'
+      text: 'Add the water to a large bowl. Add flour, salt, and yeast, then mix by hand or with a wooden spoon until a shaggy dough forms and no dry flour remains.'
     },
     {
-      title: 'Cold ferment',
-      timer: '12–24 hrs',
+      title: 'Rest',
+      timer: '1 hr',
+      timerSeconds: 60 * 60,
+      text: 'Cover the bowl with plastic wrap, a damp cloth, or a lid. Rest for about 1 hour so the flour hydrates and the dough becomes easier to knead.'
+    },
+    {
+      title: 'Knead',
+      timer: '5 min',
+      timerSeconds: 5 * 60,
+      text: 'Turn the dough onto the counter and knead for about 5 minutes, until smoother and more elastic. Return to the bowl or a proofing box and cover tightly.'
+    },
+    {
+      title: 'Bulk proof',
+      timer: '20 hrs',
       timerSeconds: null,
-      text: 'Lightly grease a large bowl, add the dough, cover tightly with plastic wrap and refrigerate overnight or up to 24 hours.'
+      text: 'Leave the dough to prove as one large piece at room temperature for about 20 hours. Adjust yeast and timing based on your room temperature.'
     },
     {
       title: 'Divide and ball',
-      timer: '3.5 hrs proof',
-      timerSeconds: 3.5 * 60 * 60,
+      timer: '4-6 hrs proof',
+      timerSeconds: null,
       text: () => {
         const doughWeight = calculateDoughWeight();
-        const ballWeight = Math.round(doughWeight / servings / 10) * 10;
-        return `Divide dough into ${servings} ${servings === 1 ? 'piece' : 'pieces'} (~${ballWeight}g each). Flatten each to degas, fold edges into the centre, pinch the seam, and flip seam-side down. Rotate in small circles on the bench to build tension. Cover and proof 3.5 hrs at room temp, or refrigerate again up to another day.`;
+        const ballWeight = Math.round(doughWeight / servings);
+        return `About 4 hours before baking, divide the dough into ${servings} ${servings === 1 ? 'ball' : 'balls'} of about ${ballWeight}g each. Shape each piece into a taut ball, place in covered containers, and proof for 4-6 hours.`;
       }
     },
     {
-      title: 'Rest at room temperature',
-      timer: '1.5 hrs',
-      timerSeconds: 90 * 60,
-      text: 'If the dough balls were cold after balling, let them come to room temperature before stretching. Cold dough tears — it needs to relax completely.'
+      title: 'Make the sauce',
+      timer: null,
+      text: 'Blend the tinned tomatoes until smooth. Season with salt and pepper. Tomato puree is optional if you want a richer, sweeter sauce. Cooking is optional; the sauce should stay loose but not watery.'
     },
     {
-      title: 'Preheat pizza oven',
+      title: 'Preheat oven',
       timer: '30 min',
       timerSeconds: 30 * 60,
-      text: 'Bring the pizza oven to 280–320°C (not max temp). Let it stabilise for at least 30 minutes. No baking tray needed — you\'ll cook directly on the stone floor.'
+      text: 'For a pizza oven, heat the stone floor to 420-480°C. For a domestic oven, preheat a stone or steel at the hottest setting for at least 30 minutes.'
     },
     {
-      title: 'Stretch the dough',
+      title: 'Shape one pizza',
       timer: null,
-      text: 'Flour both sides of a dough ball. Press your fist into the centre and work outward, leaving a ⅓" border. Drape over your fists and let gravity stretch it, rotating around the edge until 15". Final tug on the bench to even out. Dust peel generously with semolina and slide the dough on. Shake test — it should slide freely.'
+      text: 'Dust the dough ball and bench with flour. Press from the centre outward to push air into the rim, leaving the edge untouched. Flip and repeat, then stretch gently to about 10 inches.'
     },
     {
       title: 'Top and launch',
       timer: null,
-      text: 'Spread ½–¾ cup of sauce, top with cheese. Launch immediately after topping — sauce and cheese will glue the dough to the peel within a minute.'
+      text: 'Add about two spoons of tomato sauce, a small handful of mozzarella, and optional parmesan, basil, and olive oil. Slide onto a floured peel and launch immediately.'
     },
     {
       title: 'Bake',
-      timer: '7–8 min',
-      timerSeconds: 7.5 * 60,
-      text: 'Slide directly onto the stone floor. Bake 7–8 minutes, rotating 180° every 2 minutes. The dome provides top heat — no broil needed. Check the base with the peel tip; it should be deep golden with some char. If the base is colouring faster than the top, slide foil underneath.'
+      timer: '60-90 sec',
+      timerSeconds: 90,
+      text: 'Bake in the pizza oven for 60-90 seconds, turning every 20-30 seconds. In a domestic oven, bake about 6-8 minutes and rotate as needed.'
     },
     {
-      title: 'Rest and serve',
-      timer: '45 sec',
-      timerSeconds: 45,
-      text: 'Transfer to a wire rack for 30–60 seconds before cutting. This keeps the base crisp instead of steaming it on a solid surface.'
+      title: 'Finish',
+      timer: null,
+      text: 'Remove to a board or plate. Finish with parmesan, torn basil, olive oil, or black pepper if you like. Let it cool briefly before eating.'
     }
   ];
 
-  // ── STATE ──
   let servings = BASE_SERVINGS;
   const timers = {};
 
-  // ── RENDER INGREDIENTS ──
   function formatAmount(amount, unit) {
     const rounded = Math.round(amount * 10) / 10;
     const display = Number.isInteger(rounded) ? rounded : rounded.toFixed(1);
     return unit ? `${display} ${unit}` : `${display}`;
   }
 
-  function calculateDoughWeight() {
-    return ingredients
-      .filter(ing => ing.unit === 'g' || ing.unit === 'ml')
-      .reduce((total, ing) => total + ing.amount * (servings / ing.per), 0);
+  function formatRange(range, unit) {
+    const start = formatAmount(range[0], '');
+    const end = formatAmount(range[1], '');
+    return unit ? `${start}-${end} ${unit}` : `${start}-${end}`;
   }
 
-  function formatApproxPizzaCount(doughWeight) {
-    const count = doughWeight / 400;
-    const rounded = Math.round(count * 10) / 10;
-    return Number.isInteger(rounded) ? rounded : rounded.toFixed(1);
+  function calculateDoughWeight() {
+    return ingredients
+      .filter(ing => ing.includeInDough)
+      .reduce((total, ing) => {
+        if (ing.amountRange) {
+          const average = (ing.amountRange[0] + ing.amountRange[1]) / 2;
+          return total + average * (servings / ing.per);
+        }
+        return total + ing.amount * (servings / ing.per);
+      }, 0);
   }
 
   function renderIngredients() {
     const scale = servings / BASE_SERVINGS;
     const list = document.getElementById('ingredient-list');
     const doughWeight = calculateDoughWeight();
+    const ballWeight = Math.round(doughWeight / servings);
     const ingredientItems = ingredients.map(ing => {
-      const scaled = ing.amount * scale;
+      const amount = ing.amountRange
+        ? formatRange(ing.amountRange.map(value => value * scale), ing.unit)
+        : formatAmount(ing.amount * scale, ing.unit);
+
       return `
         <li class="ingredient-item">
           <span class="ing-name">
             ${ing.name}
             ${ing.note ? `<span class="ing-note">${ing.note}</span>` : ''}
           </span>
-          <span class="ing-amount">${formatAmount(scaled, ing.unit)}</span>
+          <span class="ing-amount">${amount}</span>
         </li>
       `;
     }).join('');
@@ -1068,7 +1110,7 @@
       <li class="ingredient-item ingredient-total">
         <span class="ing-name">
           Total dough
-          <span class="ing-note">Excludes semolina; ~${formatApproxPizzaCount(doughWeight)} x 14" pizzas at 400g each</span>
+          <span class="ing-note">Approx. ${ballWeight}g per 10" pizza ball</span>
         </span>
         <span class="ing-amount">${formatAmount(doughWeight, 'g')}</span>
       </li>
@@ -1086,7 +1128,6 @@
     renderSteps();
   }
 
-  // ── RENDER STEPS ──
   function formatTimer(seconds) {
     if (seconds >= 3600) {
       const h = Math.floor(seconds / 3600);
@@ -1121,7 +1162,6 @@
     }).join('');
   }
 
-  // ── TIMERS ──
   function toggleTimer(id, totalSeconds) {
     if (timers[id]) {
       clearInterval(timers[id].interval);
@@ -1158,7 +1198,6 @@
     btn.textContent = formatTimer(remaining);
   }
 
-  // ── INIT ──
   renderIngredients();
   renderSteps();
 </script>

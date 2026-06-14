@@ -482,6 +482,17 @@
 
   .ingredient-item:last-child { border-bottom: none; }
 
+  .ingredient-item.ingredient-total {
+    margin-top: 6px;
+    padding-top: 12px;
+    border-top: 1px solid var(--text);
+  }
+
+  .ingredient-total .ing-name,
+  .ingredient-total .ing-amount {
+    color: var(--text);
+  }
+
   .ing-name { color: var(--muted); flex: 1; }
 
   .ing-name .ing-note {
@@ -941,9 +952,7 @@
       timer: '3.5 hrs proof',
       timerSeconds: 3.5 * 60 * 60,
       text: () => {
-        const doughWeight = ingredients
-          .filter(ing => ing.unit === 'g' || ing.unit === 'ml')
-          .reduce((total, ing) => total + ing.amount * (servings / ing.per), 0);
+        const doughWeight = calculateDoughWeight();
         const ballWeight = Math.round(doughWeight / servings / 10) * 10;
         return `Divide dough into ${servings} ${servings === 1 ? 'piece' : 'pieces'} (~${ballWeight}g each). Flatten each to degas, fold edges into the centre, pinch the seam, and flip seam-side down. Rotate in small circles on the bench to build tension. Cover and proof 3.5 hrs at room temp, or refrigerate again up to another day.`;
       }
@@ -995,10 +1004,23 @@
     return unit ? `${display} ${unit}` : `${display}`;
   }
 
+  function calculateDoughWeight() {
+    return ingredients
+      .filter(ing => ing.unit === 'g' || ing.unit === 'ml')
+      .reduce((total, ing) => total + ing.amount * (servings / ing.per), 0);
+  }
+
+  function formatApproxPizzaCount(doughWeight) {
+    const count = doughWeight / 400;
+    const rounded = Math.round(count * 10) / 10;
+    return Number.isInteger(rounded) ? rounded : rounded.toFixed(1);
+  }
+
   function renderIngredients() {
     const scale = servings / BASE_SERVINGS;
     const list = document.getElementById('ingredient-list');
-    list.innerHTML = ingredients.map(ing => {
+    const doughWeight = calculateDoughWeight();
+    const ingredientItems = ingredients.map(ing => {
       const scaled = ing.amount * scale;
       return `
         <li class="ingredient-item">
@@ -1010,6 +1032,17 @@
         </li>
       `;
     }).join('');
+    const totalItem = `
+      <li class="ingredient-item ingredient-total">
+        <span class="ing-name">
+          Total dough
+          <span class="ing-note">Excludes semolina; ~${formatApproxPizzaCount(doughWeight)} x 14" pizzas at 400g each</span>
+        </span>
+        <span class="ing-amount">${formatAmount(doughWeight, 'g')}</span>
+      </li>
+    `;
+
+    list.innerHTML = ingredientItems + totalItem;
   }
 
   function changeServings(delta) {
